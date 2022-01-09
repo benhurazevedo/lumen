@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Controle de Produtos</title>
+</head>
+<body onload="main()">
+    <article>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Categoria</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Acoes</th>
+                </tr>
+            </thead>
+        </table>
+    </article>
+    <nav>
+        <p>
+            <button type="button" id="btnMostrarFormIncluir">Incluir Produto</button>
+        </p>
+    </nav>
+    <div id="IncluirProduto" style="display: none;">
+        <label for="incCategoria">Categoria</label><input type="text" id="incCategoria" />
+        <label for="incNome">Nome</label><input type="text" id="incNome" />
+        <label for="incPreco">Preco</label><input type="text" id="incPreco" />
+        <button type="button" id="btnIncluir">Incluir</button>
+        <button type="button" id="btnOcultarFormIncluir">Ocultar Formulário Incluir</button>
+    </div>
+    <div id="AlterarProduto" style="display: none;">
+        <label for="altId">Id</label><input type="text" id="altId" readonly/>
+        <label for="altCategoria">Categoria</label><input type="text" id="altCategoria" />
+        <label for="altNome">Nome</label><input type="text" id="altNome" />
+        <label for="altPreco">Preco</label><input type="text" id="altPreco" />
+        <button type="button" id="btnAlterar">Alterar</button>
+        <button type="button" id="btnOcultarFormAlterar">Ocultar Formulário Alterar</button>
+    </div>
+    <script src="ComunicateServer.js"></script>
+    <script src="MontarLista.js"></script>
+    <script src="ExcluirProduto.js"></script>
+    <script src="IncluirProduto.js"></script>
+    <script src="AlterarProduto.js"></script>
+    <script>
+        function main() {
+            MontarLista();
+
+            let btnExibirForm = document.querySelector("#btnMostrarFormIncluir");
+            btnExibirForm.onclick = mostrarFormIncluir;
+
+            let btnIncluir = document.querySelector("#btnIncluir");
+            btnIncluir.onclick = IncluirProduto;
+
+            let btnOcultarFormularioIncluir = document.querySelector("#btnOcultarFormIncluir");
+            btnOcultarFormularioIncluir.onclick = mostrarFormIncluir;
+
+            let btnOcultarFormularioAlterar = document.querySelector("#btnOcultarFormAlterar");
+            btnOcultarFormularioAlterar.onclick = mostrarFormAlterar;
+
+            let btnAlterar = document.querySelector("#btnAlterar");
+            btnAlterar.onclick = alterarProduto;
+        }
+    </script>
+</body>
+</html>
